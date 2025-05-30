@@ -1,1 +1,267 @@
-/* Add your CSS here */
+/* Import Montserrat and Roboto from Google Fonts */
+/* Add this at the very top of your CSS file */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+/* Set a clean, modern font and Intel blue background for the whole page */
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  background-color: #f4f8fb; /* Light blue-gray */
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the info message at the bottom of the page */
+body > p {
+  text-align: center;    /* Center the text */
+  color: #0071c5;        /* Intel blue for consistency */
+  font-size: 1em;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+/* Header styles */
+header {
+  background-color: #0071c5; /* Intel blue */
+  color: #fff;
+  padding: 30px 0 20px 0;
+  text-align: center;
+}
+
+header img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 2.2em;
+  margin: 10px 0 10px 0;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+/* Navigation bar styles for beginners */
+nav {
+  background-color: #005489; /* A darker Intel blue for the navbar */
+  padding: 10px 0;
+}
+
+/* Container for nav logo and links */
+.nav-container {
+  display: flex;                /* Use flexbox to arrange items in a row */
+  align-items: center;          /* Vertically center logo and links */
+  justify-content: space-between; /* Space between logo and links */
+  max-width: 900px;             /* Limit width for better appearance */
+  margin: 0 auto;               /* Center the nav bar on the page */
+  padding: 0 16px;              /* Add a little space on the sides */
+}
+
+/* Intel logo in the navbar */
+.nav-logo {
+  width: 60px;                  /* Set logo size */
+  height: auto;                 /* Keep logo's aspect ratio */
+  display: block;
+}
+
+/* Use flexbox to arrange links in a row */
+.navbar {
+  display: flex;                /* Arrange links in a row */
+  list-style: none;             /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin-left: 20px;            /* Space between links */
+}
+
+.navbar a {
+  text-decoration: none;        /* Remove underline */
+  color: #fff;                  /* White text for contrast */
+  font-weight: bold;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #ffd700;               /* Gold color on hover */
+}
+
+/* Timeline section styles */
+section {
+  /* Center the section and set width for exactly four cards and three gaps */
+  width: 940px;                /* 4 cards * 220px + 3 gaps * 20px = 940px */
+  max-width: 100vw;            /* Don't overflow the viewport */
+  margin: 30px auto;
+  padding: 0 10px;
+  display: flex;               /* Use flexbox to arrange cards in a row */
+  flex-wrap: nowrap;           /* Prevent cards from wrapping to next line */
+  gap: 20px;                   /* Space between cards */
+  justify-content: flex-start; /* Align cards to the left */
+  overflow-x: auto;            /* Enable horizontal scrolling if needed */
+  scroll-behavior: smooth;     /* Smooth scrolling for better experience */
+}
+
+/* Card date styles (h2) */
+.card h2 {
+  color: #0071c5;                /* Intel blue for the date */
+  font-size: 1.3em;              /* Slightly larger font */
+  font-family: 'Montserrat', 'Arial Black', Arial, sans-serif; /* Bold, modern font */
+  margin: 0 0 8px 0;             /* Space below the date */
+  letter-spacing: 1px;           /* Space out the numbers a bit */
+  text-align: center;            /* Center the date */
+}
+
+/* Card heading styles (h3) */
+.card h3 {
+  color: #005489;                /* Darker Intel blue for the heading */
+  font-size: 1.1em;              /* Slightly larger than normal */
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; /* Clean, modern font */
+  margin: 10px 0 0 0;            /* Space above the heading */
+  font-weight: bold;             /* Make heading bold */
+  text-align: center;            /* Center the heading */
+}
+
+/* Card styles for a more professional look */
+.card {
+  background: #fff;
+  border: 1px solid #b5c9d6;     /* Softer border color */
+  border-radius: 12px;           /* Slightly more rounded corners */
+  margin-bottom: 25px;
+  padding: 18px 14px 18px 14px;  /* More balanced padding */
+  box-shadow: 0 4px 16px rgba(0,113,197,0.10); /* Softer, larger shadow */
+  transition: box-shadow 0.2s, transform 0.2s;
+  flex: 0 0 220px;
+  max-width: 220px;
+  min-width: 180px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0,113,197,0.18); /* Stronger shadow on hover */
+  transform: translateY(-4px) scale(1.03);     /* Slight lift and scale */
+}
+
+/* Card images - fit neatly in the card */
+.card img {
+  width: 100%;                   /* Image fills the card width */
+  max-width: 170px;
+  height: 120px;
+  object-fit: cover;             /* Crop image to fit nicely */
+  border-radius: 8px;            /* Slightly more rounded corners */
+  border: 1px solid #e0eaf3;
+  margin-bottom: 12px;
+  background: #e8f0fa;           /* Subtle background for missing images */
+}
+
+/* Overlay for card hover effect */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 113, 197, 0.92);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1em;
+  z-index: 1;
+}
+
+/* Show the overlay when hovering over the card */
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* Responsive: On small screens, cards and images shrink and section is full width */
+@media (max-width: 1000px) {
+  section {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .card {
+    flex: 0 0 60vw;
+    max-width: 80vw;
+    min-width: 140px;
+  }
+  .card img {
+    max-width: 90%;
+    height: 90px;
+  }
+}
+
+/* Make headings and paragraphs adjust for smaller screens */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.3em;    /* Smaller heading on small screens */
+  }
+
+  header p,
+  section p {
+    font-size: 0.95em;   /* Slightly smaller paragraph text */
+    margin-bottom: 10px; /* Add a little space below paragraphs */
+  }
+
+  section h2 {
+    font-size: 1.1em;    /* Smaller card heading */
+  }
+
+  section h3 {
+    font-size: 1em;      /* Smaller card subheading */
+  }
+
+  /* Responsive navigation bar for smaller screens */
+  .nav-container {
+    flex-direction: column;      /* Stack logo and links vertically */
+    align-items: flex-start;     /* Align items to the left */
+  }
+  .nav-logo {
+    margin-bottom: 10px;         /* Space below logo */
+  }
+  .navbar {
+    flex-direction: column;      /* Stack links vertically */
+    width: 100%;                 /* Take full width */
+  }
+  .navbar li {
+    margin: 8px 0 0 0;           /* Space between links, no left margin */
+  }
+}
+
+/* Make cards stack vertically and appear wider on small screens */
+@media (max-width: 700px) {
+  section {
+    flex-direction: column;   /* Stack cards vertically */
+    width: 98vw;              /* Make section almost full width */
+    max-width: 100vw;
+    gap: 20px;                /* Space between cards */
+    padding: 0 2vw;           /* Small side padding */
+  }
+  .card {
+    max-width: 100%;          /* Card takes full width of section */
+    min-width: 0;             /* Remove min-width restriction */
+    width: 100%;              /* Card fills available width */
+  }
+  .card img {
+    max-width: 100%;          /* Image fills card width */
+    height: auto;             /* Keep image aspect ratio */
+  }
+}
