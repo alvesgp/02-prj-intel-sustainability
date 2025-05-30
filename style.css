@@ -115,37 +115,43 @@ section {
   justify-content: flex-start; /* Align cards to the left */
   overflow-x: auto;            /* Enable horizontal scrolling if needed */
   scroll-behavior: smooth;     /* Smooth scrolling for better experience */
+
+  /* Enable scroll snap for the timeline cards section */
+  scroll-snap-type: x mandatory;   /* Snap horizontally, required for children */
 }
 
-/* Card date styles (h2) */
-.card h2 {
-  color: #0071c5;                /* Intel blue for the date */
-  font-size: 1.3em;              /* Slightly larger font */
-  font-family: 'Montserrat', 'Arial Black', Arial, sans-serif; /* Bold, modern font */
-  margin: 0 0 8px 0;             /* Space below the date */
-  letter-spacing: 1px;           /* Space out the numbers a bit */
-  text-align: center;            /* Center the date */
-}
-
-/* Card heading styles (h3) */
-.card h3 {
-  color: #005489;                /* Darker Intel blue for the heading */
-  font-size: 1.1em;              /* Slightly larger than normal */
-  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; /* Clean, modern font */
-  margin: 10px 0 0 0;            /* Space above the heading */
-  font-weight: bold;             /* Make heading bold */
-  text-align: center;            /* Center the heading */
-}
-
-/* Card styles for a more professional look */
+/* Make each card snap to the start when scrolling */
 .card {
+  scroll-snap-align: start;        /* Snap each card to the start of the section */
+
+  /* Card date styles (h2) */
+  h2 {
+    color: #0071c5;                /* Intel blue for the date */
+    font-size: 1.3em;              /* Slightly larger font */
+    font-family: 'Montserrat', 'Arial Black', Arial, sans-serif; /* Bold, modern font */
+    margin: 0 0 8px 0;             /* Space below the date */
+    letter-spacing: 1px;           /* Space out the numbers a bit */
+    text-align: center;            /* Center the date */
+  }
+
+  /* Card heading styles (h3) */
+  h3 {
+    color: #005489;                /* Darker Intel blue for the heading */
+    font-size: 1.1em;              /* Slightly larger than normal */
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; /* Clean, modern font */
+    margin: 10px 0 0 0;            /* Space above the heading */
+    font-weight: bold;             /* Make heading bold */
+    text-align: center;            /* Center the heading */
+  }
+
+  /* Card styles for a more professional look */
   background: #fff;
   border: 1px solid #b5c9d6;     /* Softer border color */
   border-radius: 12px;           /* Slightly more rounded corners */
   margin-bottom: 25px;
   padding: 18px 14px 18px 14px;  /* More balanced padding */
   box-shadow: 0 4px 16px rgba(0,113,197,0.10); /* Softer, larger shadow */
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition for shadow and movement */
   flex: 0 0 220px;
   max-width: 220px;
   min-width: 180px;
@@ -154,10 +160,12 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible; /* Allow overlay to extend outside the card if needed */
 }
 .card:hover {
-  box-shadow: 0 8px 24px rgba(0,113,197,0.18); /* Stronger shadow on hover */
-  transform: translateY(-4px) scale(1.03);     /* Slight lift and scale */
+  box-shadow: 0 12px 32px rgba(0,113,197,0.22); /* Stronger, larger shadow on hover */
+  transform: translateY(-8px) scale(1.04);      /* Lift and slightly scale the card */
+  z-index: 2; /* Bring hovered card above others */
 }
 
 /* Card images - fit neatly in the card */
@@ -186,17 +194,25 @@ section {
   justify-content: center;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s; /* Smooth fade and pop-in */
+  transform: scale(0.98); /* Slightly smaller by default */
   border-radius: 12px;
   padding: 20px;
   box-sizing: border-box;
   font-size: 1em;
-  z-index: 1;
+  z-index: 10; /* Make sure overlay is above other elements */
 }
 
 /* Show the overlay when hovering over the card */
 .card:hover .card-overlay {
   opacity: 1;
+  transform: scale(1); /* Pop overlay to full size on hover */
+}
+
+/* Optional: Add a little extra space above the card so overlay has room */
+section {
+  /* ...existing styles... */
+  padding-top: 24px; /* Add space above cards for overlay to show */
 }
 
 /* Responsive: On small screens, cards and images shrink and section is full width */
@@ -244,7 +260,7 @@ section {
     flex-direction: column;   /* Stack cards vertically */
     width: 98vw;              /* Make section almost full width */
     max-width: 100vw;
-    gap: 20px;                /* Space between cards */
+    gap: 10px;                /* Space between cards */
     padding: 0 2vw;           /* Small side padding */
     align-items: center;      /* Center cards in the section */
     display: flex;            /* Ensure flex is applied */
