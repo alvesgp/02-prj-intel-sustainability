@@ -23,29 +23,36 @@ body > p {
 
 /* Header styles */
 header {
-  background-color: #0071c5; /* Intel blue */
+  /* Add a blue gradient background for a more appealing look */
+  background: linear-gradient(90deg, #0a7dd4 0%, #0a67a1 100%);
   color: #fff;
-  padding: 30px 0 20px 0;
+  padding: 36px 0 26px 0;    /* More space above and below */
   text-align: center;
 }
 
+/* Header logo */
 header img {
   width: 120px;
   margin-bottom: 10px;
 }
 
+/* Header main title */
 header h1 {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  font-size: 2.2em;
-  margin: 10px 0 10px 0;
-  letter-spacing: 1px;
+  font-size: 2.5em;          /* Larger, more prominent title */
+  margin: 12px 0 14px 0;     /* More balanced spacing */
+  letter-spacing: 1.5px;     /* Slightly more spacing between letters */
+  font-weight: 700;
 }
 
+/* Header description */
 header p {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 1.1em;
+  font-size: 1.2em;          /* Slightly larger for readability */
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 540px;          /* Keep text from stretching too wide */
+  line-height: 1.6;          /* More space between lines for clarity */
+  color: #eaf6fd;            /* Softer white for less contrast */
 }
 
 /* Navigation bar styles for beginners */
@@ -212,56 +219,68 @@ section {
 /* Make headings and paragraphs adjust for smaller screens */
 @media (max-width: 600px) {
   header h1 {
-    font-size: 1.3em;    /* Smaller heading on small screens */
+    font-size: 1.5em;        /* Smaller heading on small screens */
+    margin: 10px 0 12px 0;
   }
 
-  header p,
-  section p {
-    font-size: 0.95em;   /* Slightly smaller paragraph text */
-    margin-bottom: 10px; /* Add a little space below paragraphs */
-  }
-
-  section h2 {
-    font-size: 1.1em;    /* Smaller card heading */
-  }
-
-  section h3 {
-    font-size: 1em;      /* Smaller card subheading */
-  }
-
-  /* Responsive navigation bar for smaller screens */
-  .nav-container {
-    flex-direction: column;      /* Stack logo and links vertically */
-    align-items: flex-start;     /* Align items to the left */
-  }
-  .nav-logo {
-    margin-bottom: 10px;         /* Space below logo */
-  }
-  .navbar {
-    flex-direction: column;      /* Stack links vertically */
-    width: 100%;                 /* Take full width */
-  }
-  .navbar li {
-    margin: 8px 0 0 0;           /* Space between links, no left margin */
+  header p {
+    font-size: 1em;          /* Slightly smaller paragraph text */
+    margin-bottom: 10px;
+    max-width: 95vw;
   }
 }
 
 /* Make cards stack vertically and appear wider on small screens */
 @media (max-width: 700px) {
+  body {
+    text-align: center; /* Center all text and block elements */
+  }
+  header,
+  header h1,
+  header p {
+    text-align: center; /* Center header content */
+  }
   section {
     flex-direction: column;   /* Stack cards vertically */
     width: 98vw;              /* Make section almost full width */
     max-width: 100vw;
     gap: 20px;                /* Space between cards */
     padding: 0 2vw;           /* Small side padding */
+    align-items: center;      /* Center cards in the section */
+    display: flex;            /* Ensure flex is applied */
   }
   .card {
-    max-width: 100%;          /* Card takes full width of section */
+    max-width: 95vw;          /* Card takes almost full width of section */
     min-width: 0;             /* Remove min-width restriction */
     width: 100%;              /* Card fills available width */
+    margin-left: auto;        /* Center card horizontally */
+    margin-right: auto;
   }
   .card img {
     max-width: 100%;          /* Image fills card width */
     height: auto;             /* Keep image aspect ratio */
+    display: block;
+    margin-left: auto;        /* Center image in card */
+    margin-right: auto;
+  }
+  body > p {
+    text-align: center;       /* Center the info message */
+  }
+}
+
+/* Responsive navigation bar for smaller screens */
+@media (max-width: 700px) {
+  .nav-container {
+    flex-direction: column;      /* Stack logo and links vertically */
+    align-items: flex-start;     /* Align logo and links to the left */
+  }
+  .navbar {
+    flex-direction: column;      /* Stack navigation links vertically */
+    align-items: flex-start;         /* Center links */
+    width: 100%;
+    margin-top: 10px;            /* Space between logo and links */
+  }
+  .navbar li {
+    margin: 10px 0 0 0;         /* Space between links, no left margin */
   }
 }
